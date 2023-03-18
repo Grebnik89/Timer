@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <style>
+    .clock {
+      display: flex;
+      margin: 10px 20px 10px 20px;
+    }
+
+    .hour {
+      color: red;
+    }
+
+    .min {
+      color: green;
+    }
+
+    .sec {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clock">
+    <div class="hour" id="hour">hh</div>
+    <div>:</div>
+    <div class="min" id="min">mm</div>
+    <div>:</div>
+    <div class="sec" id="sec">ss</div>
+  </div>
+
+  <!-- клик по этой кнопке вызовет clockStart() -->
+  <input type="button" onclick="clockStart()" value="Старт">
+
+  <!-- клик по этой кнопке вызовет clockStop() -->
+  <input type="button" onclick="clockStop()" value="Стоп">
+
+  <script>
+    let timer;
+
+    function update() {
+        let date = new Date();
+        let hours = date.getHours(); // не ленись, делай отдельные переменные
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+        if (hours < 10) hour.textContent = '0' + hours;
+        hour.textContent = hours;
+
+        if (min < 10) min.textContent = '0' + minutes;
+        min.textContent = minutes;
+        
+        if (seconds < 10) sec.textContent = '0' + date.getSeconds();
+        sec.textContent = date.getSeconds();
+    }
+
+    function clockStart() {
+      timer = setInterval(update, 1000);
+      update(); // вызываем сразу, чтобы не ждать 1 секунду
+    }
+
+    function clockStop() {
+      clearInterval(timer);
+      timer = null; // не понятно зачем, работает и без
+    }
+  </script>
+</body>
+</html>
