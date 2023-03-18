@@ -45,13 +45,13 @@
         let minutes = date.getMinutes();
         let seconds = date.getSeconds();
         if (hours < 10) hour.textContent = '0' + hours;
-        hour.textContent = hours;
+        else hour.textContent = hours;
 
         if (min < 10) min.textContent = '0' + minutes;
-        min.textContent = minutes;
+        else min.textContent = minutes;
         
         if (seconds < 10) sec.textContent = '0' + date.getSeconds();
-        sec.textContent = date.getSeconds();
+        else sec.textContent = date.getSeconds();
     }
 
     function clockStart() {
